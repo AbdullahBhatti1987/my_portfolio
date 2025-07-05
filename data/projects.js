@@ -13,11 +13,11 @@ export const projects = [
   {
     title: "LMS Portal",
     description:
-      "Personal developer portfolio showcasing skills, projects, and contact form.",
+      "LMSPortal application for school, collage, universities and all institute, all type of funcationality added and centerlized consept application.",
     tags: ["Next.js", "Framer Motion", "EmailJS"],
-    demoLink: "https://yourportfolio.live",
-    githubLink: "https://github.com/yourusername/portfolio",
-    image: "/KureApplication.jpeg",
+    demoLink: "https://lmsportal-beta.vercel.app/",
+    githubLink: "https://github.com/AbdullahBhatti1987/LMSPortal",
+    image: "/LMSPortal.png",
   },
   {
     title: "Furniro (E-commerce)",
