@@ -22,9 +22,7 @@ export default function Navbar() {
   // ✅ ScrollSpy logic
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map((item) =>
-        document.getElementById(item.id)
-      );
+      const sections = navItems.map((item) => document.getElementById(item.id));
 
       let current = "home";
       for (let section of sections) {
@@ -130,13 +128,19 @@ export default function Navbar() {
                 <li key={id}>
                   <a
                     href={`#${id}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsOpen(false);
+
+                      setTimeout(() => {
+                        const el = document.getElementById(id);
+                        el?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
                     className={`block py-2 px-2 rounded-md transition ${
                       isActive ? "border-b-2 border-[var(--color-primary)]" : ""
                     }`}
-                    style={{
-                      color: "inherit",
-                    }}
+                    style={{ color: "inherit" }}
                     onMouseOver={(e) => {
                       e.currentTarget.style.backgroundColor =
                         "var(--color-primary)";

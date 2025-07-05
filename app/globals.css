@@ -102,3 +102,7 @@ body {
   opacity: 1;
 }
 
+/* In your global CSS or Tailwind */
+.scroll-offset {
+  scroll-margin-top: 30px; /* or your navbar height */
+}

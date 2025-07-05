@@ -43,7 +43,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 scroll-offset"
       style={{
        backgroundColor: "var(--color-bg)",
         color: "var(--color-text)",
