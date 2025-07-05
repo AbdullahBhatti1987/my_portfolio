@@ -1,9 +1,46 @@
 @import "tailwindcss";
 
+/* ====== Base Colors for Light Theme ====== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --color-primary: #1e40af;           Royal Blue */
+  --color-primary: #1e40af;           /* Royal Blue */
+  --color-secondary: #f4f6f8;         /* Light surface background */
+  --color-text: #0f172a;              /* Strong text */
+  --color-border: #d1d5db;            /* Light borders */
+  --color-nav-bg: rgba(255, 255, 255, 0.6); /* Semi-transparent navbar */
+  --color-nav-dropdown: rgba(255, 255, 255, 0.95);
+  --color-accent: #d97706;            /* Amber for highlights */
+  --color-bg: #ffffff;                /* Main background (Hero section) */
+  --color-surface: #f0f2f5;           /* NEW: Section background (e.g. Projects) */
 }
+
+/* ====== Dark Theme Overrides ====== */
+[data-theme="dark"] {
+  --color-primary: #60a5fa;           /* Sky Blue */
+  --color-secondary: #0b1120;         /* Dark background */
+  --color-text: #f3f4f6;              /* Light text */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-nav-bg: rgba(15, 23, 42, 0.6);
+  --color-nav-dropdown: rgba(15, 23, 42, 0.95);
+  --color-accent: #fbbf24;            /* Golden accent */
+  --color-bg: #020617;                /* Main background (Hero section) */
+  --color-surface: #0f172a;           /* NEW: Section background (e.g. Projects) */
+  --glass-blur: blur(10px);
+}
+
+
+/* Smooth transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+/* Apply background and text globally */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -24,3 +61,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
+@keyframes border-train {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 400% 0%;
+  }
+}
+
+.skill-card-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0.75rem;
+  padding: 1px;
+  z-index: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    transparent,
+    var(--color-primary),
+    transparent,
+    var(--color-primary)
+  );
+  background-size: 400% 100%;
+  animation: border-train 8s linear infinite; /* ⬅️ slowed down */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.skill-card:hover .skill-card-border {
+  opacity: 1;
+}
+
